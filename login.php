@@ -58,6 +58,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             
             <button type="submit" class="w-full bg-gray-600 text-white p-2 rounded">Login</button>
         </form>
+        <div class="mt-4 text-center">
+            <p class="text-gray-600">Don't have an account?</p>
+            <a href="signup.php" class="text-blue-600 hover:underline">Sign up here</a>
+        </div>
     </div>
 </body>
 </html>
