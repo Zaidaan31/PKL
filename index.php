@@ -1,8 +1,8 @@
 <!-- Sidebar -->
-    <?php include 'sidebar.php'; ?>
+<?php include 'sidebar.php'; ?>
 
-    <!-- Navbar -->
-    <?php include 'navbar.php'; ?>
+<!-- Navbar -->
+<?php include 'navbar.php'; ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -11,6 +11,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.12.4/dist/sweetalert2.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         /* Custom scrollbar styles */
@@ -32,12 +33,6 @@
             background: #374151;
         }
 
-        /* Table container specific styles */
-        .table-container {
-            overflow-x: auto;
-            max-width: 100%;
-        }
-
         .table-container::-webkit-scrollbar {
             width: 12px;
         }
@@ -56,25 +51,37 @@
         }
 
         .main-content {
-            margin-top: 3rem; /* Ruang untuk navbar */
-            margin-left: 16rem; /* Ruang untuk sidebar */
-            transition: margin-left 0.3s ease; /* Transisi untuk pergeseran */
-            padding: 1rem; /* Padding untuk konten */
-            flex-grow: 1; /* Mengisi sisa ruang yang tersedia */
+            margin-top: 3rem;
+            /* Ruang untuk navbar */
+            margin-left: 16rem;
+            /* Ruang untuk sidebar */
+            transition: margin-left 0.3s ease;
+            /* Transisi untuk pergeseran */
+            padding: 1rem;
+            /* Padding untuk konten */
+            flex-grow: 1;
+            /* Mengisi sisa ruang yang tersedia */
         }
+
         @media (max-width: 768px) {
             .main-content {
-                margin-left: 0; /* Tanpa sidebar untuk layar kecil */
+                margin-left: 0;
+                /* Tanpa sidebar untuk layar kecil */
             }
         }
+
         .main-content-shift {
-            margin-left: 10rem; /* Menggeser mengikuti sidebar */
+            margin-left: 10rem;
+            /* Menggeser mengikuti sidebar */
         }
+
         #menu-button {
             transition: transform 0.3s ease;
         }
+
         .menu-button-shift {
-            transform: translateX(8rem); /* Bergeser mengikuti sidebar */
+            transform: translateX(8rem);
+            /* Bergeser mengikuti sidebar */
         }
     </style>
     <title>Data</title>
@@ -83,36 +90,42 @@
 <body class="bg-gray-100 flex min-h-screen scrollbar-custom">
 
     <!-- Modal -->
-    <div id="confirmation-modal" class="fixed inset-0 bg-gray-500 bg-opacity-50 flex items-center justify-center hidden z-40">
+    <div id="confirmation-modal"
+        class="fixed inset-0 bg-gray-500 bg-opacity-50 flex items-center justify-center hidden z-40">
         <div class="bg-white rounded-lg shadow-lg p-6 max-w-sm w-full">
             <h2 class="text-lg font-bold text-gray-900">Are you sure?</h2>
             <p class="mt-2 text-gray-600">Do you really want to delete this data? This action cannot be undone.</p>
             <div class="flex justify-end mt-4">
-                <button id="cancel-button" class="bg-gray-500 text-white py-2 px-4 rounded-lg hover:bg-gray-600 mr-2">Cancel</button>
-                <button id="confirm-button" class="bg-red-500 text-white py-2 px-4 rounded-lg hover:bg-red-600">Delete</button>
+                <button id="cancel-button"
+                    class="bg-gray-500 text-white py-2 px-4 rounded-lg hover:bg-gray-600 mr-2">Cancel</button>
+                <button id="confirm-button"
+                    class="bg-red-500 text-white py-2 px-4 rounded-lg hover:bg-red-600">Delete</button>
             </div>
         </div>
     </div>
 
     <!-- Main content -->
-    <div id="main-content" class="flex-grow p-4 ml-0 md:ml-64 transition-all duration-300 mt-16">
+    <div id="main-content"
+        class="flex-grow flex flex-col items-center p-4 ml-0 md:ml-64 transition-all duration-300 mt-16">
         <!-- Hamburger Button -->
         <button id="menu-button" class="text-white md:hidden absolute top-3 left-3 z-50">
             <i id="icon-hamburger" class="fas fa-bars fa-2x"></i>
             <i id="icon-close" class="fas fa-times fa-2x opacity-0"></i>
         </button>
 
-        <!-- Action Button Row -->
-        <div class="flex items-center justify-between mb-4">
-            <div></div> <!-- Empty div to push "Create" button to the right -->
+        <div class="self-start ml-8 mb-4">
+            <!-- Action Button Row -->
             <a href="input_form.php">
-                <button class="bg-gray-500 text-white py-3 px-8 rounded-full hover:bg-gray-100 hover:text-gray-500 font-bold transition duration-300">Create</button>
+                <button
+                    class="bg-gray-500 text-white py-3 px-8 rounded-lg hover:shadow-2xl hover:bg-opacity-75 font-bold transition duration-300">
+                    Create
+                </button>
             </a>
         </div>
 
         <!-- Table Container -->
-        <div class="table-container overflow-x-auto scrollbar-custom shadow-2xl rounded-lg border border-gray-200">
-            <table class="min-w-full bg-white rounded-lg">
+        <div class="table-container overflow-x-auto scrollbar-custom max-w-[78vw] shadow-2xl rounded-lg border border-gray-200">
+            <table class=" bg-white rounded-lg">
                 <thead class="bg-gray-700 text-white">
                     <tr>
                         <th class="py-4 px-2 sm:px-4">Service</th>
@@ -141,7 +154,8 @@
                     $data = mysqli_query($koneksi, "SELECT * FROM dco LIMIT $limit OFFSET $offset");
                     while ($d = mysqli_fetch_array($data)) {
                         ?>
-                        <tr class="odd:bg-gray-100 even:bg-gray-200 hover:bg-gray-300 cursor-pointer transition duration-300">
+                        <tr
+                            class="odd:bg-gray-100 even:bg-gray-200 hover:bg-gray-300 cursor-pointer transition duration-300">
                             <td class="py-2 px-2 sm:px-3 whitespace-nowrap"><?php echo $d['service']; ?></td>
                             <td class="py-2 px-2 sm:px-3 whitespace-nowrap"><?php echo $d['manifest']; ?></td>
                             <td class="py-2 px-2 sm:px-3 whitespace-nowrap"><?php echo $d['manifest_date']; ?></td>
@@ -156,9 +170,15 @@
                             <td class="py-2 px-2 sm:px-3 whitespace-nowrap"><?php echo $d['amount']; ?></td>
                             <td class="py-2 px-2 sm:px-3 whitespace-nowrap"><?php echo $d['operational_cost']; ?></td>
                             <td class="py-2 px-2 sm:px-3 flex justify-center space-x-2">
-                                <a href="form_edit.php?id=<?php echo $d['id']; ?>" class="text-gray-700 hover:text-gray-900 transition duration-300"><i class="fas fa-edit"></i></a>
-                                <a href="form_view.php?id=<?php echo $d['id']; ?>" class="text-gray-700 hover:text-gray-900 transition duration-300"><i class="fas fa-eye"></i></a>
-                                <a href="delete.php?id=<?php echo $d['id']; ?>" data-confirm class="text-red-700 hover:text-red-900 transition duration-300"><i class="fas fa-trash-alt"></i></a>
+                                <a href="form_edit.php?id=<?php echo $d['id']; ?>"
+                                    class="text-gray-700 hover:text-gray-900 transition duration-300"><i
+                                        class="fas fa-edit"></i></a>
+                                <a href="form_view.php?id=<?php echo $d['id']; ?>"
+                                    class="text-gray-700 hover:text-gray-900 transition duration-300"><i
+                                        class="fas fa-eye"></i></a>
+                                <a href="delete.php?id=<?php echo $d['id']; ?>" data-confirm
+                                    class="text-red-700 hover:text-red-900 transition duration-300"><i
+                                        class="fas fa-trash-alt"></i></a>
                             </td>
                         </tr>
                         <?php
@@ -217,7 +237,23 @@
         const modal = document.getElementById('confirmation-modal');
         const cancelButton = document.getElementById('cancel-button');
         const confirmButton = document.getElementById('confirm-button');
-
+        // Swal.fire({
+        //     title: "Are you sure?",
+        //     text: "You won't be able to revert this!",
+        //     icon: "warning",
+        //     showCancelButton: true,
+        //     confirmButtonColor: "#3085d6",
+        //     cancelButtonColor: "#d33",
+        //     confirmButtonText: "Yes, delete it!"
+        // }).then((result) => {
+        //     if (result.isConfirmed) {
+        //         Swal.fire({
+        //             title: "Deleted!",
+        //             text: "Your file has been deleted.",
+        //             icon: "success"
+        //         });
+        //     }
+        // });
         let deleteUrl = '';
 
         function showModal(url) {
