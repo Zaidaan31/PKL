@@ -42,4 +42,4 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $error = "Terjadi kesalahan pada query.";
     }
 }
-?>
+
