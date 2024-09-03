@@ -124,7 +124,7 @@ if ($total_results > 0) {
             class="container absolute left-0 right-0 mx-auto max-w-[86vw] md:max-w-[90vw] lg:relative lg:left-auto lg:right-auto lg:mx-0 lg:max-w-[74vw]">
             <div class="flex justify-end mb-5">
                 <a href="cetak_dci_dpk.php"
-                    class="bg-gray-400 text-white my-3 mx-5 px-6 py-3 text-lg tex rounded-lg hover:opacity-75  transition duration-300">
+                    class="bg-gray-400 text-white my-3 mx-5 px-4 py-2 text-sm tex rounded-lg hover:opacity-75 lg:py-3 lg:px-5 lg:text-lg  transition duration-300">
                     <i class="fas fa-print mr-2"></i>
                     <span class="font-bold">Cetak</span>
                 </a>
