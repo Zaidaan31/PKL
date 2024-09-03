@@ -1,6 +1,5 @@
 <?php
 include 'koneksi.php'; // Sertakan koneksi database
-
 session_start();
 
 // Cek apakah pengguna sudah login
@@ -22,7 +21,7 @@ $stmt->fetch();
 $stmt->close();
 ?>
 
-<nav class="bg-gradient-to-r from-gray-700 to-gray-500 text-white px-4 py-3 shadow-md fixed top-0 right-0 w-full md:w-[calc(100%-16rem)] z-20">
+<nav id="nav" class="bg-gradient-to-r from-gray-600 to-gray-500 text-white px-4 py-3 shadow-md fixed top-0 right-0 w-full z-30">
     <div class="container mx-auto flex justify-between items-center">
         <div class="flex-grow flex items-center justify-end space-x-4 relative">
             <div class="flex items-center space-x-2">

@@ -3,6 +3,14 @@
 
 <!-- Navbar -->
 <?php include 'navbar.php'; ?>
+<?php include 'koneksi.php';
+$query = "CALL GetCustomer()";
+$result = mysqli_query($koneksi, $query);
+
+if (!$result) {
+    die("Query gagal: " . mysqli_error($koneksi));
+}
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -11,6 +19,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- <link rel="stylesheet" href="output.css"> -->
     <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.12.4/dist/sweetalert2.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
@@ -113,98 +122,55 @@
             <i id="icon-close" class="fas fa-times fa-2x opacity-0"></i>
         </button>
 
-        <div class="self-start ml-8 mb-4">
-            <!-- Action Button Row -->
+        <!-- <div class="self-start ml-8 mb-4">
             <a href="input_form.php">
                 <button
                     class="bg-gray-500 text-white py-3 px-8 rounded-lg hover:shadow-2xl hover:bg-opacity-75 font-bold transition duration-300">
                     Create
                 </button>
             </a>
-        </div>
+        </div> -->
 
         <!-- Table Container -->
         <div class="table-container overflow-x-auto scrollbar-custom max-w-[78vw] shadow-2xl rounded-lg border border-gray-200">
-            <table class=" bg-white rounded-lg">
-                <thead class="bg-gray-700 text-white">
-                    <tr>
-                        <th class="py-4 px-2 sm:px-4">Service</th>
-                        <th class="py-4 px-2 sm:px-4">Manifest</th>
-                        <th class="py-4 px-2 sm:px-4">Manifest Date</th>
-                        <th class="py-4 px-2 sm:px-4">Destination</th>
-                        <th class="py-4 px-2 sm:px-4">Cnote</th>
-                        <th class="py-4 px-2 sm:px-4">Colly</th>
-                        <th class="py-4 px-2 sm:px-4">Weight</th>
-                        <th class="py-4 px-2 sm:px-4">Delivery</th>
-                        <th class="py-4 px-2 sm:px-4">Delivery SPS</th>
-                        <th class="py-4 px-2 sm:px-4">Linehaul</th>
-                        <th class="py-4 px-2 sm:px-4">Linehaul Next</th>
-                        <th class="py-4 px-2 sm:px-4">Amount</th>
-                        <th class="py-4 px-2 sm:px-4">Operational Cost</th>
-                        <th class="py-4 px-2 sm:px-4">Actions</th>
-                    </tr>
-                </thead>
-                <tbody class="text-gray-900 text-center">
-                    <?php
-                    // Pagination logic
-                    $limit = 5; // Number of rows per page
-                    $page = isset($_GET['page']) ? (int) $_GET['page'] : 1;
-                    $offset = ($page - 1) * $limit;
-
-                    $data = mysqli_query($koneksi, "SELECT * FROM dco LIMIT $limit OFFSET $offset");
-                    while ($d = mysqli_fetch_array($data)) {
-                        ?>
-                        <tr
-                            class="odd:bg-gray-100 even:bg-gray-200 hover:bg-gray-300 cursor-pointer transition duration-300">
-                            <td class="py-2 px-2 sm:px-3 whitespace-nowrap"><?php echo $d['service']; ?></td>
-                            <td class="py-2 px-2 sm:px-3 whitespace-nowrap"><?php echo $d['manifest']; ?></td>
-                            <td class="py-2 px-2 sm:px-3 whitespace-nowrap"><?php echo $d['manifest_date']; ?></td>
-                            <td class="py-2 px-2 sm:px-3 whitespace-nowrap"><?php echo $d['destination']; ?></td>
-                            <td class="py-2 px-2 sm:px-3 whitespace-nowrap"><?php echo $d['cnote']; ?></td>
-                            <td class="py-2 px-2 sm:px-3 whitespace-nowrap"><?php echo $d['colly']; ?></td>
-                            <td class="py-2 px-2 sm:px-3 whitespace-nowrap"><?php echo $d['weight']; ?></td>
-                            <td class="py-2 px-2 sm:px-3 whitespace-nowrap"><?php echo $d['delivery']; ?></td>
-                            <td class="py-2 px-2 sm:px-3 whitespace-nowrap"><?php echo $d['delivery_sps']; ?></td>
-                            <td class="py-2 px-2 sm:px-3 whitespace-nowrap"><?php echo $d['linehaul']; ?></td>
-                            <td class="py-2 px-2 sm:px-3 whitespace-nowrap"><?php echo $d['linehaul_next']; ?></td>
-                            <td class="py-2 px-2 sm:px-3 whitespace-nowrap"><?php echo $d['amount']; ?></td>
-                            <td class="py-2 px-2 sm:px-3 whitespace-nowrap"><?php echo $d['operational_cost']; ?></td>
-                            <td class="py-2 px-2 sm:px-3 flex justify-center space-x-2">
-                                <a href="form_edit.php?id=<?php echo $d['id']; ?>"
-                                    class="text-gray-700 hover:text-gray-900 transition duration-300"><i
-                                        class="fas fa-edit"></i></a>
-                                <a href="form_view.php?id=<?php echo $d['id']; ?>"
-                                    class="text-gray-700 hover:text-gray-900 transition duration-300"><i
-                                        class="fas fa-eye"></i></a>
-                                <a href="delete.php?id=<?php echo $d['id']; ?>" data-confirm
-                                    class="text-red-700 hover:text-red-900 transition duration-300"><i
-                                        class="fas fa-trash-alt"></i></a>
-                            </td>
+        <table class="min-w-full divide-y divide-gray-200">
+                    <thead class="bg-gray-50">
+                        <tr>
+                            <th class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">Service</th>
+                            <th class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">Code</th>
+                            <th class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">Date</th>
+                            <th class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">Customer Name</th>
+                            <th class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">Recipient Name</th>
+                            <th class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">Customer Phone</th>
+                            <th class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">Recipient Phone</th>
+                            <th class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">Quantity</th>
+                            <th class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">Weight</th>
+                            <th class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">Destination</th>
+                            <th class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">Total Amount</th>
                         </tr>
-                        <?php
-                    }
-                    ?>
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody class="bg-white divide-y divide-gray-200">
+                        <?php while ($row = mysqli_fetch_assoc($result)) : ?>
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><?php echo htmlspecialchars($row['Service']); ?></td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><?php echo htmlspecialchars($row['Kode']); ?></td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><?php echo htmlspecialchars($row['Tanggal']); ?></td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><?php echo htmlspecialchars($row['Pengirim']); ?></td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><?php echo htmlspecialchars($row['Penerima']); ?></td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><?php echo htmlspecialchars($row['Telpon_Pengirim']); ?></td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><?php echo htmlspecialchars($row['Telpon_Penerima']); ?></td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><?php echo htmlspecialchars($row['Kuantitas']); ?></td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><?php echo htmlspecialchars($row['Berat']); ?></td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><?php echo htmlspecialchars($row['Tujuan']); ?></td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><?php echo htmlspecialchars($row['Amount']); ?></td>
+                            </tr>
+                        <?php endwhile; ?>
+                    </tbody>
+                </table>
         </div>
 
         <!-- Pagination controls -->
-        <div class="flex justify-center mt-4">
-            <?php
-            // Get total number of rows
-            $result = mysqli_query($koneksi, "SELECT COUNT(*) AS total FROM dco");
-            $row = mysqli_fetch_assoc($result);
-            $total_rows = $row['total'];
-            $total_pages = ceil($total_rows / $limit);
-
-            // Pagination links
-            if ($total_pages > 1) {
-                for ($i = 1; $i <= $total_pages; $i++) {
-                    echo '<a href="?page=' . $i . '" class="mx-2 py-2 px-4 bg-gray-500 text-white rounded-full hover:bg-gray-700 transition duration-300">' . $i . '</a>';
-                }
-            }
-            ?>
-        </div>
+        
     </div>
 
     <script>
