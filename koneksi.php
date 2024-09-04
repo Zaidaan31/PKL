@@ -1,3 +1,3 @@
 <?php
-$koneksi = mysqli_connect("localhost","root","","dco");
+$koneksi = mysqli_connect("localhost","root","","cost2cost");
 

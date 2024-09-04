@@ -13,11 +13,11 @@ BEGIN
         c.tujuan AS Tujuan,
         s.amount AS Amount
     FROM
-        dco.customer c
+        cost2cost.customer c
     INNER JOIN
-        dco.barang b ON c.id_barang = b.id
+        cost2cost.barang b ON c.id_barang = b.id
     INNER JOIN
-        dco.service s ON c.id_service = s.id
+        cost2cost.service s ON c.id_service = s.id
     WHERE c.id_barang <> 0
     AND MONTH(c.tanggal) = MONTH(CURDATE())
     AND YEAR(c.tanggal) = YEAR(CURDATE())
@@ -39,11 +39,11 @@ BEGIN
         c.tujuan AS Tujuan,
         s.amount AS Amount
     FROM
-        dco.customer c
+        cost2cost.customer c
     INNER JOIN
-        dco.barang_bks b ON c.id_barang_bks = b.id
+        cost2cost.barang_bks b ON c.id_barang_bks = b.id
     INNER JOIN
-        dco.service s ON c.id_service = s.id
+        cost2cost.service s ON c.id_service = s.id
     WHERE c.id_barang_bks <> 0
     AND MONTH(c.tanggal) = MONTH(CURDATE())
     AND YEAR(c.tanggal) = YEAR(CURDATE())
@@ -65,11 +65,11 @@ BEGIN
         c.tujuan AS Tujuan,
         s.amount AS Amount
     FROM
-        dco.customer c
+        cost2cost.customer c
     INNER JOIN
-        dco.barang_jkt b ON c.id_barang_jkt = b.id
+        cost2cost.barang_jkt b ON c.id_barang_jkt = b.id
     INNER JOIN
-        dco.service s ON c.id_service = s.id
+        cost2cost.service s ON c.id_service = s.id
     WHERE c.id_barang_jkt <> 0
     AND MONTH(c.tanggal) = MONTH(CURDATE())
     AND YEAR(c.tanggal) = YEAR(CURDATE())
@@ -91,11 +91,11 @@ BEGIN
         c.tujuan AS Tujuan,
         s.amount AS Amount
     FROM
-        dco.customer c
+        cost2cost.customer c
     INNER JOIN
-        dco.barang_dpk b ON c.id_barang_dpk = b.id
+        cost2cost.barang_dpk b ON c.id_barang_dpk = b.id
     INNER JOIN
-        dco.service s ON c.id_service = s.id
+        cost2cost.service s ON c.id_service = s.id
     WHERE c.id_barang_dpk <> 0
     AND MONTH(c.tanggal) = MONTH(CURDATE())
     AND YEAR(c.tanggal) = YEAR(CURDATE())
@@ -117,11 +117,11 @@ BEGIN
         c.tujuan AS Tujuan,
         s.amount AS Amount
     FROM
-        dco.customer c
+        cost2cost.customer c
     INNER JOIN
-        dco.barang_bgr b ON c.id_barang_bgr = b.id
+        cost2cost.barang_bgr b ON c.id_barang_bgr = b.id
     INNER JOIN
-        dco.service s ON c.id_service = s.id
+        cost2cost.service s ON c.id_service = s.id
     WHERE c.id_barang_bgr <> 0
     AND MONTH(c.tanggal) = MONTH(CURDATE())
     AND YEAR(c.tanggal) = YEAR(CURDATE())
@@ -143,11 +143,11 @@ BEGIN
         c.tujuan AS Tujuan,
         s.amount AS Amount
     FROM
-        dco.customer c
+        cost2cost.customer c
     INNER JOIN
-        dco.barang_tgr b ON c.id_barang_tgr = b.id
+        cost2cost.barang_tgr b ON c.id_barang_tgr = b.id
     INNER JOIN
-        dco.service s ON c.id_service = s.id
+        cost2cost.service s ON c.id_service = s.id
     WHERE c.id_barang_tgr <> 0
     AND MONTH(c.tanggal) = MONTH(CURDATE())
     AND YEAR(c.tanggal) = YEAR(CURDATE())

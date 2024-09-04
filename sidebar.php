@@ -48,8 +48,8 @@ if (!isset($_SESSION['id'])) {
                 <?php if ($_SESSION['level'] == 'admin'): ?>
                 <a href="signup.php"
                     class="flex items-center py-2 px-4 w-full text-white hover:bg-gray-500 transition duration-300">
-                    <i class="fas fa-file-alt text-lg"></i>
-                    <span class="ml-3 justify-center font-bold text-sm lg:text-base">Daftar Akun Baru</span>
+                    <i class="fa-solid fa-user-plus"></i>
+                    <span class="ml-3 justify-center font-bold text-sm lg:text-base">Daftar User Baru</span>
                 </a>
                 <?php endif;?>
                 <?php if ($_SESSION['level'] == 'admin' || $_SESSION['level'] == 'sales ckr'): ?>

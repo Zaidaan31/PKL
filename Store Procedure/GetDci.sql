@@ -18,13 +18,13 @@ BEGIN
         c.id_barang_bgr,
         c.id_barang_tgr
     FROM customer c
-    LEFT JOIN dco.service s ON c.id_service = s.id
-    LEFT JOIN dco.barang b ON c.id_barang = b.id
-    LEFT JOIN dco.barang_bks bb ON c.id_barang_bks = bb.id
-    LEFT JOIN dco.barang_jkt bj ON c.id_barang_jkt = bj.id
-    LEFT JOIN dco.barang_dpk bd ON c.id_barang_dpk = bd.id
-    LEFT JOIN dco.barang_bgr br ON c.id_barang_bgr = br.id
-    LEFT JOIN dco.barang_tgr bt ON c.id_barang_tgr = bt.id
+    LEFT JOIN cost2cost.service s ON c.id_service = s.id
+    LEFT JOIN cost2cost.barang b ON c.id_barang = b.id
+    LEFT JOIN cost2cost.barang_bks bb ON c.id_barang_bks = bb.id
+    LEFT JOIN cost2cost.barang_jkt bj ON c.id_barang_jkt = bj.id
+    LEFT JOIN cost2cost.barang_dpk bd ON c.id_barang_dpk = bd.id
+    LEFT JOIN cost2cost.barang_bgr br ON c.id_barang_bgr = br.id
+    LEFT JOIN cost2cost.barang_tgr bt ON c.id_barang_tgr = bt.id
     WHERE c.id_barang = 0
     AND c.tujuan ="CIKARANG"
     AND MONTH(c.tanggal) = MONTH(CURDATE())
@@ -52,13 +52,13 @@ BEGIN
         c.id_barang_bgr,
         c.id_barang_tgr
     FROM customer c
-    LEFT JOIN dco.service s ON c.id_service = s.id
-    LEFT JOIN dco.barang b ON c.id_barang = b.id
-    LEFT JOIN dco.barang_bks bb ON c.id_barang_bks = bb.id
-    LEFT JOIN dco.barang_jkt bj ON c.id_barang_jkt = bj.id
-    LEFT JOIN dco.barang_dpk bd ON c.id_barang_dpk = bd.id
-    LEFT JOIN dco.barang_bgr br ON c.id_barang_bgr = br.id
-    LEFT JOIN dco.barang_tgr bt ON c.id_barang_tgr = bt.id
+    LEFT JOIN cost2cost.service s ON c.id_service = s.id
+    LEFT JOIN cost2cost.barang b ON c.id_barang = b.id
+    LEFT JOIN cost2cost.barang_bks bb ON c.id_barang_bks = bb.id
+    LEFT JOIN cost2cost.barang_jkt bj ON c.id_barang_jkt = bj.id
+    LEFT JOIN cost2cost.barang_dpk bd ON c.id_barang_dpk = bd.id
+    LEFT JOIN cost2cost.barang_bgr br ON c.id_barang_bgr = br.id
+    LEFT JOIN cost2cost.barang_tgr bt ON c.id_barang_tgr = bt.id
     WHERE c.id_barang_bks = 0
     AND c.tujuan ="BEKASI"
     AND MONTH(c.tanggal) = MONTH(CURDATE())
@@ -86,13 +86,13 @@ BEGIN
         c.id_barang_bgr,
         c.id_barang_tgr
     FROM customer c
-    LEFT JOIN dco.service s ON c.id_service = s.id
-    LEFT JOIN dco.barang b ON c.id_barang = b.id
-    LEFT JOIN dco.barang_bks bb ON c.id_barang_bks = bb.id
-    LEFT JOIN dco.barang_jkt bj ON c.id_barang_jkt = bj.id
-    LEFT JOIN dco.barang_dpk bd ON c.id_barang_dpk = bd.id
-    LEFT JOIN dco.barang_bgr br ON c.id_barang_bgr = br.id
-    LEFT JOIN dco.barang_tgr bt ON c.id_barang_tgr = bt.id
+    LEFT JOIN cost2cost.service s ON c.id_service = s.id
+    LEFT JOIN cost2cost.barang b ON c.id_barang = b.id
+    LEFT JOIN cost2cost.barang_bks bb ON c.id_barang_bks = bb.id
+    LEFT JOIN cost2cost.barang_jkt bj ON c.id_barang_jkt = bj.id
+    LEFT JOIN cost2cost.barang_dpk bd ON c.id_barang_dpk = bd.id
+    LEFT JOIN cost2cost.barang_bgr br ON c.id_barang_bgr = br.id
+    LEFT JOIN cost2cost.barang_tgr bt ON c.id_barang_tgr = bt.id
     WHERE c.id_barang_jkt = 0
     AND c.tujuan ="JAKARTA"
     AND MONTH(c.tanggal) = MONTH(CURDATE())
@@ -120,13 +120,13 @@ BEGIN
         c.id_barang_bgr,
         c.id_barang_tgr
     FROM customer c
-    LEFT JOIN dco.service s ON c.id_service = s.id
-    LEFT JOIN dco.barang b ON c.id_barang = b.id
-    LEFT JOIN dco.barang_bks bb ON c.id_barang_bks = bb.id
-    LEFT JOIN dco.barang_jkt bj ON c.id_barang_jkt = bj.id
-    LEFT JOIN dco.barang_dpk bd ON c.id_barang_dpk = bd.id
-    LEFT JOIN dco.barang_bgr br ON c.id_barang_bgr = br.id
-    LEFT JOIN dco.barang_tgr bt ON c.id_barang_tgr = bt.id
+    LEFT JOIN cost2cost.service s ON c.id_service = s.id
+    LEFT JOIN cost2cost.barang b ON c.id_barang = b.id
+    LEFT JOIN cost2cost.barang_bks bb ON c.id_barang_bks = bb.id
+    LEFT JOIN cost2cost.barang_jkt bj ON c.id_barang_jkt = bj.id
+    LEFT JOIN cost2cost.barang_dpk bd ON c.id_barang_dpk = bd.id
+    LEFT JOIN cost2cost.barang_bgr br ON c.id_barang_bgr = br.id
+    LEFT JOIN cost2cost.barang_tgr bt ON c.id_barang_tgr = bt.id
     WHERE c.id_barang_dpk = 0
     AND c.tujuan ="DEPOK"
     AND MONTH(c.tanggal) = MONTH(CURDATE())
@@ -153,12 +153,12 @@ BEGIN
         c.id_barang_dpk,
         c.id_barang_tgr
     FROM customer c
-    LEFT JOIN dco.service s ON c.id_service = s.id
-    LEFT JOIN dco.barang b ON c.id_barang = b.id
-    LEFT JOIN dco.barang_bks bb ON c.id_barang_bks = bb.id
-    LEFT JOIN dco.barang_jkt bj ON c.id_barang_jkt = bj.id
-    LEFT JOIN dco.barang_dpk bd ON c.id_barang_dpk = bd.id
-    LEFT JOIN dco.barang_tgr bt ON c.id_barang_tgr = bt.id
+    LEFT JOIN cost2cost.service s ON c.id_service = s.id
+    LEFT JOIN cost2cost.barang b ON c.id_barang = b.id
+    LEFT JOIN cost2cost.barang_bks bb ON c.id_barang_bks = bb.id
+    LEFT JOIN cost2cost.barang_jkt bj ON c.id_barang_jkt = bj.id
+    LEFT JOIN cost2cost.barang_dpk bd ON c.id_barang_dpk = bd.id
+    LEFT JOIN cost2cost.barang_tgr bt ON c.id_barang_tgr = bt.id
     WHERE c.id_barang_bgr = 0
     AND c.tujuan ="BOGOR"
     AND MONTH(c.tanggal) = MONTH(CURDATE())
@@ -186,13 +186,13 @@ BEGIN
         c.id_barang_tgr,
         c.id_barang_bgr
     FROM customer c
-    LEFT JOIN dco.service s ON c.id_service = s.id
-    LEFT JOIN dco.barang b ON c.id_barang = b.id
-    LEFT JOIN dco.barang_bks bb ON c.id_barang_bks = bb.id
-    LEFT JOIN dco.barang_jkt bj ON c.id_barang_jkt = bj.id
-    LEFT JOIN dco.barang_dpk bd ON c.id_barang_dpk = bd.id
-    LEFT JOIN dco.barang_tgr bt ON c.id_barang_tgr = bt.id
-    LEFT JOIN dco.barang_bgr br ON c.id_barang_bgr = br.id
+    LEFT JOIN cost2cost.service s ON c.id_service = s.id
+    LEFT JOIN cost2cost.barang b ON c.id_barang = b.id
+    LEFT JOIN cost2cost.barang_bks bb ON c.id_barang_bks = bb.id
+    LEFT JOIN cost2cost.barang_jkt bj ON c.id_barang_jkt = bj.id
+    LEFT JOIN cost2cost.barang_dpk bd ON c.id_barang_dpk = bd.id
+    LEFT JOIN cost2cost.barang_tgr bt ON c.id_barang_tgr = bt.id
+    LEFT JOIN cost2cost.barang_bgr br ON c.id_barang_bgr = br.id
     WHERE c.id_barang_tgr = 0
     AND c.tujuan ="TANGGERANG"
     AND MONTH(c.tanggal) = MONTH(CURDATE())

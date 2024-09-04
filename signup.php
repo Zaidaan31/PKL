@@ -93,7 +93,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <i id="icon-close" class="fas fa-times fa-2x opacity-0"></i>
         </button>
 
-        <div class="bg-white shadow-lg rounded-lg p-8 max-w-md w-full mx-auto mt-10 mb-10">
+        <div class="bg-white shadow-lg rounded-lg p-8 max-w-md w-full mx-auto my-10">
             <h1 class="text-2xl font-bold text-gray-700 mb-6 text-center">New User</h1>
 
             <?php if ($error): ?>

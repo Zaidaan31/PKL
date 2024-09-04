@@ -42,7 +42,7 @@ $stmt->close();
                 </button>
 
                 <!-- Dropdown Menu -->
-                <div id="dropdownMenu" class="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg py-2 hidden z-10">
+                <div id="dropdownMenu" class="absolute right-0 mt-4 w-48 bg-white rounded-lg shadow-lg py-2 hidden z-10">
                     <a href="logout.php" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 transition duration-150 ease-in-out">
                         <div class="flex items-center space-x-3">
                             <svg class="w-5 h-5 text-red-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">

@@ -55,7 +55,7 @@
         <div class="containe my-16 absolute left-0 right-0 mx-auto max-w-[86vw] md:max-w-[90vw] lg:relative lg:left-auto lg:right-auto lg:mx-0 lg:max-w-[74vw]">
             <h1 class="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-gray-700 mb-10 text-center">Selamat Datang!</h1>
             <div class="bg-white shadow-lg rounded-xl border w-full border-gray-200 p-6">
-                <h1 class="text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold text-gray-700 mb-6">Cost to Cost</h1>
+                <h1 class="text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold text-red-700 mb-6">Cost to Cost</h1>
                 <h2 class="text-lg md:text-xl lg:text-2xl xl:text-3xl text-gray-500">Delivery Cost Inbound & Delivery Cost Outbound
                 </h2>
                 <p class="mt-4 text-sm md:text-md lg:text-lg xl:text-xl text-gray-900">
