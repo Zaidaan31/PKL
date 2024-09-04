@@ -1,6 +1,7 @@
 Pembuatan projek aplikasi "Cost to Cost" berbasis website menggunakan aplikasi microsoft visual studio code versi 1.92.2 & menggunakan database mysql
 
 Tujuan aplikasi: Aplikasi ini bertujuan untuk membuat dan mencetak data laporan pengeluaran perusahaan saat mengirim barang customer
+
 Fitur:
 - Login Multiuser
 - Form input data customer dan barang
