@@ -115,7 +115,7 @@ if ($total_results > 0) {
                 <a href="cetak_dco_dpk.php"
                     class="bg-gray-400 text-white my-3 mx-5 px-4 py-2 text-sm tex rounded-lg hover:opacity-75 lg:py-3 lg:px-5 lg:text-lg  transition duration-300">
                     <i class="fas fa-print mr-2"></i>
-                    <span class="font-bold">Cetak</span>
+                    <span class="font-bold">Print</span>
                 </a>
             </div>
             <div class="bg-white shadow-md rounded-lg scrollbar-custom overflow-x-auto">
