@@ -20,8 +20,11 @@ $stmt->bind_result($username);
 $stmt->fetch();
 $stmt->close();
 ?>
-
-<nav id="nav" class="bg-gradient-to-r from-gray-600 to-gray-500 text-white px-4 py-3 shadow-md fixed top-0 right-0 w-full z-30">
+<style>
+    .custom-background-nav{
+        background-image: radial-gradient(circle at center center, rgba(33,33,33,0),rgb(33,33,33)),repeating-linear-gradient(135deg, rgb(33,33,33) 0px, rgb(33,33,33) 1px,transparent 1px, transparent 4px),repeating-linear-gradient(45deg, rgb(56,56,56) 0px, rgb(56,56,56) 5px,transparent 5px, transparent 6px),linear-gradient(90deg, rgb(33,33,33),rgb(33,33,33));    }
+</style>
+<nav id="nav" class="custom-background-nav text-white px-4 py-3 shadow-md fixed top-0 right-0 w-full z-30">
     <div class="container mx-auto flex justify-between items-center">
         <div class="flex-grow flex items-center justify-end space-x-4 relative">
             <div class="flex items-center space-x-2">

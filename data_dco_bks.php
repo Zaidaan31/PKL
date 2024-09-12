@@ -26,7 +26,7 @@ if ($total_results > 0) {
     $number_of_pages = ceil($total_results / $results_per_page);
 
     // Determine which page number the visitor is currently on.
-    $page = isset($_GET['page']) ? $_GET['page'] : 1;
+    $page = isset($_GET['page']) ? $_GET['page'] : 1; 
 
     // Determine the SQL LIMIT starting number for the results on the displaying page.
     $starting_limit_number = ($page - 1) * $results_per_page;

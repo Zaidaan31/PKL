@@ -36,7 +36,7 @@ if (!isset($_SESSION['id'])) {
 
 <body>
     <div id="sidebar"
-        class="fixed inset-y-0 left-0 z-40 w-40 md:w-40 lg:w-56 scrollbar-custom overflow-y-auto bg-gray-700 text-white transform -translate-x-full transition-transform duration-300 lg:translate-x-0">
+        class="fixed inset-y-0 left-0 z-40 w-40 md:w-40 lg:w-56 scrollbar-custom overflow-y-auto custom-background-nav text-white transform -translate-x-full transition-transform duration-300 lg:translate-x-0">
         <div class="flex flex-col items-center py-7 px-2">
             <h1 class="text-2xl lg:text-3xl font-bold">Menu</h1>
             <nav class="flex flex-col w-full items-center justify-center space-y-2 mt-4">
@@ -49,7 +49,7 @@ if (!isset($_SESSION['id'])) {
                 <a href="signup.php"
                     class="flex items-center py-2 px-4 w-full text-white hover:bg-gray-500 transition duration-300">
                     <i class="fa-solid fa-user-plus"></i>
-                    <span class="ml-3 justify-center font-bold text-sm lg:text-base">Daftar User Baru</span>
+                    <span class="ml-3 justify-center font-bold text-sm lg:text-base">Add New User</span>
                 </a>
                 <?php endif;?>
                 <?php if ($_SESSION['level'] == 'admin' || $_SESSION['level'] == 'sales ckr'): ?>
