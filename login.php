@@ -21,7 +21,7 @@
 
         <form action="act_login.php" method="POST">
             <label class="block mb-2 text-sm font-medium text-gray-600" for="username">Username</label>
-            <input type="text" id="username" name="username" class="block w-full p-2 border border-gray-300 rounded mb-4" required>
+            <input type="text" id="username" name="username" class="block w-full p-2 border border-gray-300 rounded mb-4" autofocus required>
             
             <label class="block mb-2 text-sm font-medium text-gray-600" for="password">Password</label>
             <input type="password" id="password" name="password" class="block w-full p-2 border border-gray-300 rounded mb-4" required>
