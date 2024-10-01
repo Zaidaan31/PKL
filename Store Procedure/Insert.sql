@@ -14,6 +14,7 @@ CREATE PROCEDURE `cost2cost`.`InsertCkr`(
 )
 BEGIN
     DECLARE last_inserted_id INT;
+    DECLARE last_cust_id INT;
 
     -- Insert data into the barang cikarang table
     INSERT INTO cost2cost.barang(type, qty, weight)
@@ -23,10 +24,17 @@ BEGIN
     SET last_inserted_id = LAST_INSERT_ID();
 
     -- Insert data into the customer table
-    INSERT INTO cost2cost.customer(tujuan, nama_pengirim, nama_penerima, tlp_pengirim, tlp_penerima,
-    alamat_pengirim, alamat_penerima, tanggal, id_barang, id_service)
-    VALUES( in_tujuan, in_pengirim, in_penerima, in_tlp_pengirim, in_tlp_penerima,
-    in_almt_pengirim, in_almt_penerima, NOW(), last_inserted_id, in_service);
+    INSERT INTO cost2cost.customer(nama_pengirim, nama_penerima, tlp_pengirim, tlp_penerima,
+    alamat_pengirim, alamat_penerima)
+    VALUES( in_pengirim, in_penerima, in_tlp_pengirim, in_tlp_penerima,
+    in_almt_pengirim, in_almt_penerima);
+
+    -- Get the last inserted customer id
+    SET last_cust_id = LAST_INSERT_ID();
+
+    -- Insert data into trans table
+    INSERT INTO cost2cost.trans(tujuan, tanggal, id_cust, id_barang_ckr, id_service)
+    VALUES(in_tujuan, NOW(), last_cust_id, last_inserted_id, in_service);
 END
 
 -- Insert Bekasi
@@ -45,6 +53,7 @@ CREATE PROCEDURE `cost2cost`.`InsertBks`(
 )
 BEGIN
     DECLARE last_inserted_id INT;
+    DECLARE last_cust_id INT;
 
     -- Insert data into the barang bekasi table
     INSERT INTO cost2cost.barang_bks(type, qty, weight)
@@ -54,10 +63,17 @@ BEGIN
     SET last_inserted_id = LAST_INSERT_ID();
 
     -- Insert data into the customer table
-    INSERT INTO cost2cost.customer(tujuan, nama_pengirim, nama_penerima, tlp_pengirim, tlp_penerima,
-    alamat_pengirim, alamat_penerima, tanggal, id_barang_bks, id_service)
-    VALUES( in_tujuan, in_pengirim, in_penerima, in_tlp_pengirim, in_tlp_penerima,
-    in_almt_pengirim, in_almt_penerima, NOW(), last_inserted_id, in_service);
+    INSERT INTO cost2cost.customer(nama_pengirim, nama_penerima, tlp_pengirim, tlp_penerima,
+    alamat_pengirim, alamat_penerima)
+    VALUES( in_pengirim, in_penerima, in_tlp_pengirim, in_tlp_penerima,
+    in_almt_pengirim, in_almt_penerima);
+
+    -- Get the last inserted customer id
+    SET last_cust_id = LAST_INSERT_ID();
+
+    -- Insert data into trans table
+    INSERT INTO cost2cost.trans(tujuan, tanggal, id_cust, id_barang_bks, id_service)
+    VALUES(in_tujuan, NOW(), last_cust_id, last_inserted_id, in_service);
 END
 
 -- Insert Jakarta
@@ -76,6 +92,7 @@ CREATE PROCEDURE `cost2cost`.`InsertJkt`(
 )
 BEGIN
     DECLARE last_inserted_id INT;
+    DECLARE last_cust_id INT;
 
     -- Insert data into the barang jakarta table
     INSERT INTO cost2cost.barang_jkt(type, qty, weight)
@@ -85,10 +102,17 @@ BEGIN
     SET last_inserted_id = LAST_INSERT_ID();
 
     -- Insert data into the customer table
-    INSERT INTO cost2cost.customer(tujuan, nama_pengirim, nama_penerima, tlp_pengirim, tlp_penerima,
-    alamat_pengirim, alamat_penerima, tanggal, id_barang_jkt, id_service)
-    VALUES( in_tujuan, in_pengirim, in_penerima, in_tlp_pengirim, in_tlp_penerima,
-    in_almt_pengirim, in_almt_penerima, NOW(), last_inserted_id, in_service);
+    INSERT INTO cost2cost.customer(nama_pengirim, nama_penerima, tlp_pengirim, tlp_penerima,
+    alamat_pengirim, alamat_penerima)
+    VALUES( in_pengirim, in_penerima, in_tlp_pengirim, in_tlp_penerima,
+    in_almt_pengirim, in_almt_penerima);
+
+    -- Get the last inserted customer id
+    SET last_cust_id = LAST_INSERT_ID();
+
+    -- Insert data into trans table
+    INSERT INTO cost2cost.trans(tujuan, tanggal, id_cust, id_barang_jkt, id_service)
+    VALUES(in_tujuan, NOW(), last_cust_id, last_inserted_id, in_service);
 END
 
 -- Insert Depok
@@ -107,6 +131,7 @@ CREATE PROCEDURE `cost2cost`.`InsertDpk`(
 )
 BEGIN
     DECLARE last_inserted_id INT;
+    DECLARE last_cust_id INT;
 
     -- Insert data into the barang depok table
     INSERT INTO cost2cost.barang_dpk(type, qty, weight)
@@ -116,10 +141,17 @@ BEGIN
     SET last_inserted_id = LAST_INSERT_ID();
 
     -- Insert data into the customer table
-    INSERT INTO cost2cost.customer(tujuan, nama_pengirim, nama_penerima, tlp_pengirim, tlp_penerima,
-    alamat_pengirim, alamat_penerima, tanggal, id_barang_dpk, id_service)
-    VALUES( in_tujuan, in_pengirim, in_penerima, in_tlp_pengirim, in_tlp_penerima,
-    in_almt_pengirim, in_almt_penerima, NOW(), last_inserted_id, in_service);
+    INSERT INTO cost2cost.customer(nama_pengirim, nama_penerima, tlp_pengirim, tlp_penerima,
+    alamat_pengirim, alamat_penerima)
+    VALUES( in_pengirim, in_penerima, in_tlp_pengirim, in_tlp_penerima,
+    in_almt_pengirim, in_almt_penerima);
+
+    -- Get the last inserted customer id
+    SET last_cust_id = LAST_INSERT_ID();
+
+    -- Insert data into trans table
+    INSERT INTO cost2cost.trans(tujuan, tanggal, id_cust, id_barang_dpk, id_service)
+    VALUES(in_tujuan, NOW(), last_cust_id, last_inserted_id, in_service);
 END
 
 -- Insert Bogor
@@ -138,6 +170,7 @@ CREATE PROCEDURE `cost2cost`.`InsertBgr`(
 )
 BEGIN
     DECLARE last_inserted_id INT;
+    DECLARE last_cust_id INT;
 
     -- Insert data into the barang bogor table
     INSERT INTO cost2cost.barang_bgr(type, qty, weight)
@@ -147,10 +180,17 @@ BEGIN
     SET last_inserted_id = LAST_INSERT_ID();
 
     -- Insert data into the customer table
-    INSERT INTO cost2cost.customer(tujuan, nama_pengirim, nama_penerima, tlp_pengirim, tlp_penerima,
-    alamat_pengirim, alamat_penerima, tanggal, id_barang_bgr, id_service)
-    VALUES( in_tujuan, in_pengirim, in_penerima, in_tlp_pengirim, in_tlp_penerima,
-    in_almt_pengirim, in_almt_penerima, NOW(), last_inserted_id, in_service);
+    INSERT INTO cost2cost.customer(nama_pengirim, nama_penerima, tlp_pengirim, tlp_penerima,
+    alamat_pengirim, alamat_penerima)
+    VALUES( in_pengirim, in_penerima, in_tlp_pengirim, in_tlp_penerima,
+    in_almt_pengirim, in_almt_penerima);
+
+    -- Get the last inserted customer id
+    SET last_cust_id = LAST_INSERT_ID();
+
+    -- Insert data into trans table
+    INSERT INTO cost2cost.trans(tujuan, tanggal, id_cust, id_barang_bgr, id_service)
+    VALUES(in_tujuan, NOW(), last_cust_id, last_inserted_id, in_service);
 END
 
 -- Insert Tanggerang
@@ -169,6 +209,7 @@ CREATE PROCEDURE `cost2cost`.`InsertTgr`(
 )
 BEGIN
     DECLARE last_inserted_id INT;
+    DECLARE last_cust_id INT;
 
     -- Insert data into the barang tanggerang table
     INSERT INTO cost2cost.barang_tgr(type, qty, weight)
@@ -178,8 +219,15 @@ BEGIN
     SET last_inserted_id = LAST_INSERT_ID();
 
     -- Insert data into the customer table
-    INSERT INTO cost2cost.customer(tujuan, nama_pengirim, nama_penerima, tlp_pengirim, tlp_penerima,
-    alamat_pengirim, alamat_penerima, tanggal, id_barang_tgr, id_service)
-    VALUES( in_tujuan, in_pengirim, in_penerima, in_tlp_pengirim, in_tlp_penerima,
-    in_almt_pengirim, in_almt_penerima, NOW(), last_inserted_id, in_service);
+    INSERT INTO cost2cost.customer(nama_pengirim, nama_penerima, tlp_pengirim, tlp_penerima,
+    alamat_pengirim, alamat_penerima)
+    VALUES( in_pengirim, in_penerima, in_tlp_pengirim, in_tlp_penerima,
+    in_almt_pengirim, in_almt_penerima);
+
+    -- Get the last inserted customer id
+    SET last_cust_id = LAST_INSERT_ID();
+
+    -- Insert data into trans table
+    INSERT INTO cost2cost.trans(tujuan, tanggal, id_cust, id_barang_tgr, id_service)
+    VALUES(in_tujuan, NOW(), last_cust_id, last_inserted_id, in_service);
 END

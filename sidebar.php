@@ -46,12 +46,20 @@ if (!isset($_SESSION['id'])) {
                     <span class="ml-3 justify-center font-bold text-sm lg:text-base">Home</span>
                 </a>
                 <?php if ($_SESSION['level'] == 'admin'): ?>
-                <a href="signup.php"
-                    class="flex items-center py-2 px-4 w-full text-white hover:bg-gray-500 transition duration-300">
-                    <i class="fa-solid fa-user-plus"></i>
-                    <span class="ml-3 justify-center font-bold text-sm lg:text-base">Add New User</span>
-                </a>
-                <?php endif;?>
+                    <a href="signup.php"
+                        class="flex items-center py-2 px-4 w-full text-white hover:bg-gray-500 transition duration-300">
+                        <i class="fa-solid fa-user-plus"></i>
+                        <span class="ml-3 justify-center font-bold text-sm lg:text-base">Add New User</span>
+                    </a>
+                <?php endif; ?>
+                <?php if ($_SESSION['level'] == 'admin'): ?>
+                    <a href="listuser.php"
+                        class="flex items-center py-2 px-4 w-full text-white hover:bg-gray-500 transition duration-300">
+                        <i class="fa-solid fa-users"></i>
+                        <span class="ml-3 justify-center font-bold text-sm lg:text-base">List of User</span>
+                    </a>
+                <?php endif; ?>
+
                 <?php if ($_SESSION['level'] == 'admin' || $_SESSION['level'] == 'sales ckr'): ?>
                     <a href="form.php"
                         class="flex items-center py-2 px-4 w-full text-white hover:bg-gray-500 transition duration-300">
@@ -148,23 +156,23 @@ if (!isset($_SESSION['id'])) {
                     </a>
                 <?php endif; ?>
                 <?php if ($_SESSION['level'] == 'admin' || $_SESSION['level'] == 'sales tgr'): ?>
-                <a href="form_tanggerang.php"
-                    class="flex items-center py-2 px-4 w-full text-white hover:bg-gray-500 transition duration-300">
-                    <i class="fas fa-file-alt text-lg"></i>
-                    <span class="ml-3 justify-center font-bold text-sm lg:text-base">Input Form</span>
-                </a>
+                    <a href="form_tanggerang.php"
+                        class="flex items-center py-2 px-4 w-full text-white hover:bg-gray-500 transition duration-300">
+                        <i class="fas fa-file-alt text-lg"></i>
+                        <span class="ml-3 justify-center font-bold text-sm lg:text-base">Input Form</span>
+                    </a>
                 <?php endif; ?>
                 <?php if ($_SESSION['level'] == 'admin' || $_SESSION['level'] == 'finance tgr'): ?>
-                <a href="data_dco_tgr.php"
-                    class="flex items-center py-2 px-4 w-full text-white hover:bg-gray-500 transition duration-300">
-                    <i class="fas fa-database text-lg"></i>
-                    <span class="ml-3 justify-center font-bold text-sm lg:text-base">DCO Tanggerang</span>
-                </a>
-                <a href="data_dci_tgr.php"
-                    class="flex items-center py-2 px-4 w-full text-white hover:bg-gray-500 transition duration-300">
-                    <i class="fas fa-database text-lg"></i>
-                    <span class="ml-3 justify-center font-bold text-sm lg:text-base">DCI Tanggerang</span>
-                </a>
+                    <a href="data_dco_tgr.php"
+                        class="flex items-center py-2 px-4 w-full text-white hover:bg-gray-500 transition duration-300">
+                        <i class="fas fa-database text-lg"></i>
+                        <span class="ml-3 justify-center font-bold text-sm lg:text-base">DCO Tanggerang</span>
+                    </a>
+                    <a href="data_dci_tgr.php"
+                        class="flex items-center py-2 px-4 w-full text-white hover:bg-gray-500 transition duration-300">
+                        <i class="fas fa-database text-lg"></i>
+                        <span class="ml-3 justify-center font-bold text-sm lg:text-base">DCI Tanggerang</span>
+                    </a>
                 <?php endif; ?>
             </nav>
         </div>

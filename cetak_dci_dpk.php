@@ -129,8 +129,8 @@ $pdf->Ln(2); // Add space between details and table
 
 // Table headers
 $pdf->SetFont('Arial', 'B', FONT_SIZE);
-$header = array('Service', 'Origin', 'Code', 'Date', 'Customer Name', 'Recipient Name', 'Quantity', 'Weight', 'Total Amount');
-$widths = array(15, 20, 32, 23, 23, 23, 12, 12, 20); // Adjusted widths for smaller font
+$header = array('Service', 'Origin', 'Item Code', 'Transaction Code', 'Date', 'Customer Name', 'Recipient Name', 'Quantity', 'Weight', 'Total Amount');
+$widths = array(13, 19, 25, 25, 18, 23, 23, 12, 12, 20); // Adjusted widths for smaller font
 
 // Draw header cells with bottom border only
 foreach ($header as $index => $col) {
@@ -167,12 +167,13 @@ while ($row = mysqli_fetch_assoc($result)) {
     $pdf->Cell($widths[0], ROW_HEIGHT, htmlspecialchars($row['Service']), 0);
     $pdf->Cell($widths[1], ROW_HEIGHT, htmlspecialchars($row['Origin']), 0);
     $pdf->Cell($widths[2], ROW_HEIGHT, htmlspecialchars($row['Kode']), 0);
-    $pdf->Cell($widths[3], ROW_HEIGHT, htmlspecialchars($row['Tanggal']), 0);
-    $pdf->Cell($widths[4], ROW_HEIGHT, htmlspecialchars($row['Pengirim']), 0);
-    $pdf->Cell($widths[5], ROW_HEIGHT, htmlspecialchars($row['Penerima']), 0);
-    $pdf->Cell($widths[6], ROW_HEIGHT, htmlspecialchars($row['Kuantitas']), 0);
-    $pdf->Cell($widths[7], ROW_HEIGHT, htmlspecialchars($row['Berat']), 0);
-    $pdf->Cell($widths[8], ROW_HEIGHT, htmlspecialchars($row['Amount']), 0);
+    $pdf->Cell($widths[3], ROW_HEIGHT, htmlspecialchars($row['kode_trans']), 0);
+    $pdf->Cell($widths[4], ROW_HEIGHT, htmlspecialchars($row['Tanggal']), 0);
+    $pdf->Cell($widths[5], ROW_HEIGHT, htmlspecialchars($row['Pengirim']), 0);
+    $pdf->Cell($widths[6], ROW_HEIGHT, htmlspecialchars($row['Penerima']), 0);
+    $pdf->Cell($widths[7], ROW_HEIGHT, htmlspecialchars($row['Kuantitas']), 0);
+    $pdf->Cell($widths[8], ROW_HEIGHT, htmlspecialchars($row['Berat']), 0);
+    $pdf->Cell($widths[9], ROW_HEIGHT, htmlspecialchars($row['Amount']), 0);
     $pdf->Ln();
 
     // Accumulate the total amount
@@ -185,8 +186,8 @@ $pdf->Cell(array_sum($widths), 0, '', 'T'); // 'T' = top border
 // Add the total amount row
 $pdf->SetFont('Arial', 'B', FONT_SIZE);
 $pdf->Ln(2); // Space before total row
-$pdf->Cell(array_sum(array_slice($widths, 0, 8)), ROW_HEIGHT, 'Total Amount', 0, 0, 'R');
-$pdf->Cell($widths[8], ROW_HEIGHT, htmlspecialchars($totalAmount), 0, 0, 'L'); // Align total amount with the last column
+$pdf->Cell(array_sum(array_slice($widths, 0, 9)), ROW_HEIGHT, 'Total Amount', 0, 0, 'R');
+$pdf->Cell($widths[9], ROW_HEIGHT, htmlspecialchars($totalAmount), 0, 0, 'L'); // Align total amount with the last column
 $pdf->Ln();
 
 // Output the PDF

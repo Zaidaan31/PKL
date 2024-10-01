@@ -16,7 +16,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $weight = $_POST['weight'];
 
     // Panggil Stored Procedure untuk memasukkan data
-    $sql = "CALL AddTesting(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    $sql = "CALL InsertCkr(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
     $stmt = mysqli_prepare($koneksi, $sql);
     
     if ($stmt) {
